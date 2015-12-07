@@ -1,0 +1,14 @@
+﻿<Application x:Class="TestRx3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/TestRx3;component/assets/themes/default.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TestRx3;component/Ctontrols/FilterTextBox.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/TestRx3;component/Ctontrols/WindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
+    </Application.Resources>
+</Application>

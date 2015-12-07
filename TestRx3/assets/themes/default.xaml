@@ -1,0 +1,142 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="GitHubAccentColor">#4ea6ea</Color>
+    <SolidColorBrush x:Key="GitHubAccentBrush" Color="{StaticResource GitHubAccentColor}" />
+    <SolidColorBrush x:Key="GitHubModalBackgroundFill" Color="#4D000000" />
+    <Color x:Key="GitHubModalViewBackgroundColor">White</Color>
+    <SolidColorBrush x:Key="GitHubModalViewBackground" Color="{StaticResource GitHubModalViewBackgroundColor}" />
+    <Color x:Key="GitHubModalViewTextColor">#333</Color>
+    <SolidColorBrush x:Key="GitHubModalViewTextBrush" Color="{StaticResource GitHubModalViewTextColor}" />
+    <Color x:Key="GHTextColor">#333</Color>
+    <SolidColorBrush x:Key="GHTextBrush" Color="{StaticResource GHTextColor}" />
+    <Color x:Key="GHTextSecondaryColor">#666</Color>
+    <SolidColorBrush x:Key="GHTextSecondaryBrush" Color="{StaticResource GHTextSecondaryColor}" />
+    <Color x:Key="GHLinkButtonTextColor">#333</Color>
+    <SolidColorBrush x:Key="GHLinkButtonTextBrush" Color="{StaticResource GHLinkButtonTextColor}" />
+    <Color x:Key="GHLinkButtonIconColor">#666</Color>
+    <SolidColorBrush x:Key="GHLinkButtonIconBrush" Color="{StaticResource GHLinkButtonIconColor}" />
+    <Color x:Key="GHLinkButtonHoverColor">#222</Color>
+    <SolidColorBrush x:Key="GHLinkButtonHoverBrush" Color="{StaticResource GHLinkButtonHoverColor}" />
+    <Color x:Key="GHLinkButtonHoverIconColor">#222</Color>
+    <SolidColorBrush x:Key="GHLinkButtonHoverIconBrush" Color="{StaticResource GHLinkButtonHoverIconColor}" />
+    <Color x:Key="GHLinkButtonPressedColor">#121212</Color>
+    <SolidColorBrush x:Key="GHLinkButtonPressedBrush" Color="{StaticResource GHLinkButtonPressedColor}" />
+    <Color x:Key="GHLinkButtonPressedIconColor">#121212</Color>
+    <SolidColorBrush x:Key="GHLinkButtonPressedIconBrush" Color="{StaticResource GHLinkButtonPressedIconColor}" />
+    <Color x:Key="GHBlueLinkButtonTextColor">#4D89C1</Color>
+    <SolidColorBrush x:Key="GHBlueLinkButtonTextBrush" Color="{StaticResource GHBlueLinkButtonTextColor}" />
+    <Color x:Key="GHBlueLinkButtonIconColor">#4D89C1</Color>
+    <SolidColorBrush x:Key="GHBlueLinkButtonIconBrush" Color="{StaticResource GHBlueLinkButtonIconColor}" />
+    <Color x:Key="GHBlueLinkButtonHoverColor">#2061A1</Color>
+    <SolidColorBrush x:Key="GHBlueLinkButtonHoverBrush" Color="{StaticResource GHBlueLinkButtonHoverColor}" />
+    <Color x:Key="GHBlueLinkButtonHoverIconColor">#2061A1</Color>
+    <SolidColorBrush x:Key="GHBlueLinkButtonHoverIconBrush" Color="{StaticResource GHBlueLinkButtonHoverIconColor}" />
+    <Color x:Key="GHBlueLinkButtonPressedColor">#0B4680</Color>
+    <SolidColorBrush x:Key="GHBlueLinkButtonPressedBrush" Color="{StaticResource GHBlueLinkButtonPressedColor}" />
+    <Color x:Key="GHBlueLinkButtonPressedIconColor">#0B4680</Color>
+    <SolidColorBrush x:Key="GHBlueLinkButtonPressedIconBrush" Color="{StaticResource GHBlueLinkButtonPressedIconColor}" />
+    <Color x:Key="GHBoxDividerColor">#e5e5e5</Color>
+    <SolidColorBrush x:Key="GHBoxDividerBrush" Color="{StaticResource GHBoxDividerColor}" />
+    <Color x:Key="GHBoxDividerTransparentColor">#00e5e5e5</Color>
+    <SolidColorBrush x:Key="GHBoxDividerTransparentBrush" Color="{StaticResource GHBoxDividerTransparentColor}" />
+    <Color x:Key="GHBoxTextColor">#333333</Color>
+    <SolidColorBrush x:Key="GHBoxTextBrush" Color="{StaticResource GHBoxTextColor}" />
+    <Color x:Key="GHBoxIconColor">#b7b7b7</Color>
+    <SolidColorBrush x:Key="GHBoxIconBrush" Color="{StaticResource GHBoxIconColor}" />
+    <Color x:Key="GHBoxBackgroundColor">Transparent</Color>
+    <SolidColorBrush x:Key="GHBoxBackgroundBrush" Color="{StaticResource GHBoxBackgroundColor}" />
+    <Color x:Key="GHBoxSelectedTextColor">#333333</Color>
+    <SolidColorBrush x:Key="GHBoxSelectedTextBrush" Color="{StaticResource GHBoxSelectedTextColor}" />
+    <Color x:Key="GHBoxSelectedIconColor">#b7b7b7</Color>
+    <SolidColorBrush x:Key="GHBoxSelectedIconBrush" Color="{StaticResource GHBoxSelectedIconColor}" />
+    <Color x:Key="GHBoxSelectedBackgroundColor">#e7e7e7</Color>
+    <SolidColorBrush x:Key="GHBoxSelectedBackgroundBrush" Color="{StaticResource GHBoxSelectedBackgroundColor}" />
+    <Color x:Key="GHBoxActiveSelectionTextColor">#ffffff</Color>
+    <SolidColorBrush x:Key="GHBoxActiveSelectionTextBrush" Color="{StaticResource GHBoxActiveSelectionTextColor}" />
+    <Color x:Key="GHBoxActiveSelectionIconColor">#ffffff</Color>
+    <SolidColorBrush x:Key="GHBoxActiveSelectionIconBrush" Color="{StaticResource GHBoxActiveSelectionIconColor}" />
+    <Color x:Key="GHBoxActiveSelectionBackgroundColor">#3998d6</Color>
+    <SolidColorBrush x:Key="GHBoxActiveSelectionBackgroundBrush" Color="{StaticResource GHBoxActiveSelectionBackgroundColor}" />
+    <Color x:Key="GHBoxHoverTextColor">#0a0a0a</Color>
+    <SolidColorBrush x:Key="GHBoxHoverTextBrush" Color="{StaticResource GHBoxHoverTextColor}" />
+    <Color x:Key="GHBoxHoverIconColor">#909090</Color>
+    <SolidColorBrush x:Key="GHBoxHoverIconBrush" Color="{StaticResource GHBoxHoverIconColor}" />
+    <Color x:Key="GHBoxHoverBackgroundColor">Transparent</Color>
+    <SolidColorBrush x:Key="GHBoxHoverBackgroundBrush" Color="{StaticResource GHBoxHoverBackgroundColor}" />
+    <SolidColorBrush x:Key="GitHubPullRequestProcessingBrush" Color="#777777" />
+    <SolidColorBrush x:Key="GitHubPullRequestMergeableBrush" Color="#59c12e" />
+    <Color x:Key="GitHubWarningColor">#f39c12</Color>
+    <SolidColorBrush x:Key="GitHubWarningBrush" Color="{StaticResource GitHubWarningColor}" />
+    <Color x:Key="GHProgressBarForegroundColor">#4ea6ea</Color>
+    <SolidColorBrush x:Key="GHProgressBarForegroundBrush" Color="{StaticResource GHProgressBarForegroundColor}" />
+    <Color x:Key="GHProgressBarBackgroundColor">#D9E6F3</Color>
+    <SolidColorBrush x:Key="GHProgressBarBackgroundBrush" Color="{StaticResource GHProgressBarBackgroundColor}" />
+    <Color x:Key="GitHubIconColor">#333333</Color>
+    <SolidColorBrush x:Key="GitHubIconBrush" Color="{StaticResource GitHubIconColor}" />
+    <Color x:Key="GitHubErrorColor">#740000</Color>
+    <SolidColorBrush x:Key="GitHubErrorBrush" Color="{StaticResource GitHubErrorColor}" />
+    <Color x:Key="DefaultBackgroundColor">White</Color>
+    <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="{StaticResource DefaultBackgroundColor}" />
+    <Color x:Key="FormContentBackgroundColor">#fdfdfd</Color>
+    <SolidColorBrush x:Key="FormContentBackgroundBrush" Color="{StaticResource FormContentBackgroundColor}" />
+    <SolidColorBrush x:Key="GitHubTextBoxForegroundBrush" Color="#FF333333" />
+    <SolidColorBrush x:Key="GitHubTextBoxBackgroundBrush" Color="White" />
+    <SolidColorBrush x:Key="GitHubTextBoxBorderBrush" Color="#FFCACACA" />
+    <SolidColorBrush x:Key="GitHubTextBoxMouseOverBorderBrush" Color="#FFA9A9A9" />
+    <SolidColorBrush x:Key="GHScrollBarBrush" Color="#3F000000" />
+    <SolidColorBrush x:Key="GHScrollBarHoverBrush" Color="#66000000" />
+    <SolidColorBrush x:Key="HorizontalDividerBorderBrush" Color="#19000000" />
+    <RadialGradientBrush x:Key="HorizontalDividerShadowBrush">
+        <GradientStop Color="Black" />
+        <GradientStop Offset="1" Color="#00000000" />
+    </RadialGradientBrush>
+    <DropShadowEffect x:Key="GHPopupEffect" Direction="270" ShadowDepth="0" BlurRadius="4" Color="Black" Opacity="0.6" />
+    <Color x:Key="Status.Default">#333</Color>
+    <Color x:Key="Status.NewChange">#58CA30</Color>
+    <Color x:Key="Status.DeletedChange">#EA2829</Color>
+    <Color x:Key="Status.RenamedChange">#F0B429</Color>
+    <Color x:Key="Status.ConflictedChange">#6e5494</Color>
+    <Color x:Key="DiffStat.NoChangeBrush">#EEEEEE</Color>
+    <Color x:Key="DiffStat.NewChange">#6CC644</Color>
+    <Color x:Key="DiffStat.NewChangeSelected">#C9F1FC</Color>
+    <Color x:Key="DiffStat.DeletedChange">#D7431B</Color>
+    <Color x:Key="DiffStat.DeletedChangeSelected">#05277F</Color>
+    <Color x:Key="DiffStat.ConflictChange">#FEC42D</Color>
+    <Color x:Key="DiffStat.ConflictChangeSelected">#5FA0E4</Color>
+    <Color x:Key="Diff.RemovedBackground">#ffecec</Color>
+    <Color x:Key="Diff.RemovedMarginBackground">#ffdddd</Color>
+    <Color x:Key="Diff.AddedBackground">#eaffea</Color>
+    <Color x:Key="Diff.AddedMarginBackground">#dbffdb</Color>
+    <Color x:Key="Diff.ContextBackground">Transparent</Color>
+    <Color x:Key="Diff.ContextMarginBackground">Transparent</Color>
+    <Color x:Key="Diff.HeaderBackground">#f8f8ff</Color>
+    <Color x:Key="Diff.HeaderMarginBackground">#f8f8ff</Color>
+    <Color x:Key="Diff.MarginForeground">#666666</Color>
+    <Color x:Key="Diff.MarginChangedLineForeground">#666666</Color>
+    <Color x:Key="Diff.RemovedForeground">#740000</Color>
+    <Color x:Key="Diff.AddedForeground">#001e00</Color>
+    <Color x:Key="Diff.RemovedHighlight">#f8cbcb</Color>
+    <Color x:Key="Diff.AddedHighlight">#a6f3a6</Color>
+    <Color x:Key="Diff.SelectedBackground">#3998d6</Color>
+    <Color x:Key="Diff.SelectedHighlight">#3998d6</Color>
+    <Color x:Key="Diff.UnselectedHighlight">#4ea6ea</Color>
+    <Color x:Key="Diff.MarginSelectedForeground">#CCffffff</Color>
+    <Color x:Key="Diff.EditableAddLineBorder">#b4e5b2</Color>
+    <Color x:Key="Diff.EditableDeleteLineBorder">#e9acad</Color>
+    <Color x:Key="Diff.EditableHighlightedLineBorder">#428dc7</Color>
+    <Color x:Key="Diff.EditableIncludedLineBorder">#3181b6</Color>
+    <Color x:Key="Diff.HeaderLineBorder">#e0dffb</Color>
+    <Color x:Key="Diff.ContextLineBorder">#e5e5e5</Color>
+    <Color x:Key="Diff.MarginDividerLine">#20000000</Color>
+    <SolidColorBrush x:Key="ChromeButtonForegroundBrush" Color="#cccccc" />
+    <SolidColorBrush x:Key="ChromeButtonBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ChromeButtonHoverForegroundBrush" Color="#333333" />
+    <SolidColorBrush x:Key="ChromeButtonHoverBrush" Color="#e7e7e7" />
+    <SolidColorBrush x:Key="ChromeButtonPressedForegroundBrush" Color="#ffffff" />
+    <SolidColorBrush x:Key="ChromeButtonPressedBrush" Color="#4ea6ea" />
+    <SolidColorBrush x:Key="ChromeCloseButtonForegroundBrush" Color="#cccccc" />
+    <SolidColorBrush x:Key="ChromeCloseButtonBrush" Color="Transparent" />
+    <SolidColorBrush x:Key="ChromeCloseButtonHoverForegroundBrush" Color="#ffffff" />
+    <SolidColorBrush x:Key="ChromeCloseButtonHoverBrush" Color="#E04343" />
+    <SolidColorBrush x:Key="ChromeCloseButtonPressedForegroundBrush" Color="#ffffff" />
+    <SolidColorBrush x:Key="ChromeCloseButtonPressedBrush" Color="#993D3D" />
+</ResourceDictionary>
