@@ -18,8 +18,8 @@ namespace TestRx3 {
         public static extern bool AttachConsole(int dwProcessId);
 
         protected override void OnStartup(StartupEventArgs e) {
-//             AttachConsole(Process.GetCurrentProcess().Id);
-//             AllocConsole();
+            AttachConsole(Process.GetCurrentProcess().Id);
+            AllocConsole();
         }
     }
 }

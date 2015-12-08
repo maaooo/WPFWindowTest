@@ -1,0 +1,533 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ui="clr-namespace:TestRx3">
+
+    <Style x:Key="GitHubButton" TargetType="{x:Type Button}">
+        <Style.Resources>
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFF1F1F1" Offset="0" />
+                <GradientStop Color="#FFE1E1E1" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundMouseOverGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFE8E8E8" Offset="0" />
+                <GradientStop Color="#FFD7D7D7" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundPressedGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFE8E8E8" Offset="0" />
+                <GradientStop Color="#FFCDCDCD" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundDisabledGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFFCFCFC" Offset="0" />
+                <GradientStop Color="#FFEBEBEB" Offset="1" />
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="GitHubButtonForegroundBrush" Color="#FF666666" />
+            <SolidColorBrush x:Key="GitHubButtonBorderBrush" Color="#FFCACACA" />
+            <SolidColorBrush x:Key="GitHubButtonBorderMouseOverBrush" Color="#FFCACACA" />
+            <SolidColorBrush x:Key="GitHubButtonBorderPressedBrush" Color="#FFBFBFBF" />
+        </Style.Resources>
+        <Setter Property="Control.Background" Value="{StaticResource GitHubButtonBackgroundGradientBrush}" />
+        <Setter Property="Control.BorderBrush" Value="{StaticResource GitHubButtonBorderBrush}" />
+        <Setter Property="Control.Foreground" Value="{StaticResource GitHubButtonForegroundBrush}" />
+        <Setter Property="Control.FontFamily" Value="{DynamicResource GitHubFontFamilyNormal}" />
+        <Setter Property="Control.FontSize" Value="12" />
+        <Setter Property="Control.Padding" Value="12,5" />
+        <Setter Property="FrameworkElement.Margin" Value="0" />
+        <Setter Property="FrameworkElement.MinWidth" Value="76" />
+        <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Control.BorderThickness" Value="1" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Left" />
+        <Setter Property="ToolTipService.ShowDuration" Value="30000" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverBorder">
+                                            <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedBorder">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="0.5" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="contentPresenter">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.5" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border Name="Background" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Background="{TemplateBinding Control.Background}" />
+                        <Rectangle Name="DisabledVisualElement" Fill="{StaticResource GitHubButtonBackgroundDisabledGradientBrush}" SnapsToDevicePixels="True" IsHitTestVisible="False" Opacity="0" />
+                        <Border Name="MouseOverBorder" BorderBrush="{StaticResource GitHubButtonBorderMouseOverBrush}" Background="{StaticResource GitHubButtonBackgroundMouseOverGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                        <Border Name="PressedBorder" BorderBrush="{StaticResource GitHubButtonBorderPressedBrush}" Background="{StaticResource GitHubButtonBackgroundPressedGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                        <Border Name="DefaultVisualElement" BorderBrush="{DynamicResource GitHubAccentBrush}" Background="#00FFFFFF" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                        <ContentPresenter Name="contentPresenter" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Margin="{TemplateBinding Control.Padding}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="True">
+                            <Setter TargetName="DefaultVisualElement" Property="UIElement.Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="UIElement.IsKeyboardFocused" Value="True">
+                            <Setter TargetName="DefaultVisualElement" Property="UIElement.Opacity" Value="1" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GitHubToggleButton" TargetType="{x:Type ToggleButton}">
+        <Style.Resources>
+            <SolidColorBrush x:Key="GitHubButtonForegroundBrush" Color="#333" />
+            <SolidColorBrush x:Key="GitHubButtonForegroundDisabledBrush" Color="#666" />
+            <SolidColorBrush x:Key="GitHubAltButtonBorderBrush" Color="#999" />
+            <SolidColorBrush x:Key="GitHubButtonBackgroundBrush" Color="#FF666666" />
+            <SolidColorBrush x:Key="GitHubButtonBorderBrush" Color="#FFCACACA" />
+            <SolidColorBrush x:Key="GitHubButtonBorderMouseOverBrush" Color="#FFCACACA" />
+            <SolidColorBrush x:Key="GitHubButtonBorderPressedBrush" Color="#FFBFBFBF" />
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFF1F1F1" Offset="0" />
+                <GradientStop Color="#FFE1E1E1" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundMouseOverGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFE8E8E8" Offset="0" />
+                <GradientStop Color="#FFD7D7D7" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundPressedGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFE8E8E8" Offset="0" />
+                <GradientStop Color="#FFCDCDCD" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubButtonBackgroundDisabledGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFFCFCFC" Offset="0" />
+                <GradientStop Color="#FFEBEBEB" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubAltButtonBackgroundGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFCACACA" Offset="0" />
+                <GradientStop Color="#FFB1B1B1" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubAltButtonBackgroundMouseOverGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFC4C4C4" Offset="0" />
+                <GradientStop Color="#FFAAAAAA" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubAltButtonBackgroundPressedGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFC4C4C4" Offset="0" />
+                <GradientStop Color="#FFA0A0A0" Offset="1" />
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="GitHubAltButtonBackgroundDisabledGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#FFBABABA" Offset="0" />
+                <GradientStop Color="#FFB1B1B1" Offset="1" />
+            </LinearGradientBrush>
+        </Style.Resources>
+        <Setter Property="Control.FontFamily" Value="{DynamicResource GitHubFontFamilyNormal}" />
+        <Setter Property="Control.FontSize" Value="12" />
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="Control.Padding" Value="15,4" />
+        <Setter Property="FrameworkElement.Margin" Value="0" />
+        <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Control.BorderThickness" Value="1" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Left" />
+        <Setter Property="ToolTipService.ShowDuration" Value="30000" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Control.Background" Value="{StaticResource GitHubButtonBackgroundGradientBrush}" />
+        <Setter Property="Control.BorderBrush" Value="{StaticResource GitHubButtonBorderBrush}" />
+        <Setter Property="Control.Foreground" Value="{StaticResource GitHubButtonForegroundBrush}" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverBorder">
+                                            <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedBorder">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="0.5" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="contentPresenter">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.5" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border Name="Background" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Background="{TemplateBinding Control.Background}" />
+                        <Rectangle Name="DisabledVisualElement" Fill="{StaticResource GitHubButtonBackgroundDisabledGradientBrush}" SnapsToDevicePixels="True" IsHitTestVisible="False" Opacity="0" />
+                        <Border Name="MouseOverBorder" BorderBrush="{StaticResource GitHubButtonBorderMouseOverBrush}" Background="{StaticResource GitHubButtonBackgroundMouseOverGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                        <Border Name="PressedBorder" BorderBrush="{StaticResource GitHubButtonBorderPressedBrush}" Background="{StaticResource GitHubButtonBackgroundPressedGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                        <Border Name="DefaultVisualElement" BorderBrush="{DynamicResource GitHubAccentBrush}" Background="#00FFFFFF" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                        <ContentPresenter Name="contentPresenter" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Margin="{TemplateBinding Control.Padding}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                <Setter Property="Control.Background" Value="{StaticResource GitHubAltButtonBackgroundGradientBrush}" />
+                <Setter Property="Control.Foreground" Value="{StaticResource GitHubButtonForegroundBrush}" />
+                <Setter Property="Control.BorderBrush" Value="{StaticResource GitHubAltButtonBorderBrush}" />
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverBorder">
+                                                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedBorder">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused" />
+                                        <VisualState x:Name="Unfocused" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualState x:Name="Checked" />
+                                        <VisualState x:Name="Unchecked" />
+                                        <VisualState x:Name="Indeterminate" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border Name="Background" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Background="{TemplateBinding Control.Background}" />
+                                <Rectangle Name="DisabledVisualElement" Fill="{StaticResource GitHubAltButtonBackgroundDisabledGradientBrush}" SnapsToDevicePixels="True" IsHitTestVisible="False" Opacity="0" />
+                                <Border Name="MouseOverBorder" BorderBrush="{TemplateBinding Control.BorderBrush}" Background="{StaticResource GitHubAltButtonBackgroundMouseOverGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                                <Border Name="PressedBorder" BorderBrush="{TemplateBinding Control.BorderBrush}" Background="{StaticResource GitHubAltButtonBackgroundPressedGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                                <Border Name="DefaultVisualElement" BorderBrush="{DynamicResource GitHubAccentBrush}" Background="#00FFFFFF" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                                <ContentPresenter Name="contentPresenter" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Margin="{TemplateBinding Control.Padding}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="UIElement.IsEnabled" Value="False">
+                <Setter Property="Control.Background" Value="{StaticResource GitHubAltButtonBackgroundDisabledGradientBrush}" />
+                <Setter Property="Control.Foreground" Value="{StaticResource GitHubButtonForegroundDisabledBrush}" />
+                <Setter Property="Control.BorderBrush" Value="{StaticResource GitHubAltButtonBorderBrush}" />
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MouseOverBorder">
+                                                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PressedBorder">
+                                                    <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Disabled" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="FocusStates">
+                                        <VisualState x:Name="Focused" />
+                                        <VisualState x:Name="Unfocused" />
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="CheckStates">
+                                        <VisualState x:Name="Checked" />
+                                        <VisualState x:Name="Unchecked" />
+                                        <VisualState x:Name="Indeterminate" />
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border Name="Background" BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Background="{TemplateBinding Control.Background}" />
+                                <Rectangle Name="DisabledVisualElement" Fill="{StaticResource GitHubAltButtonBackgroundDisabledGradientBrush}" SnapsToDevicePixels="True" IsHitTestVisible="False" Opacity="0" />
+                                <Border Name="MouseOverBorder" BorderBrush="{StaticResource GitHubButtonBorderMouseOverBrush}" Background="{StaticResource GitHubButtonBackgroundMouseOverGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                                <Border Name="PressedBorder" BorderBrush="{StaticResource GitHubButtonBorderPressedBrush}" Background="{StaticResource GitHubButtonBackgroundPressedGradientBrush}" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                                <Border Name="DefaultVisualElement" BorderBrush="{DynamicResource GitHubAccentBrush}" Background="#00FFFFFF" BorderThickness="{TemplateBinding Control.BorderThickness}" SnapsToDevicePixels="True" Opacity="0" />
+                                <ContentPresenter Name="contentPresenter" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Margin="{TemplateBinding Control.Padding}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}" BasedOn="{StaticResource GitHubButton}" />
+    <SolidColorBrush x:Key="GitHubLinkButtonBrush" Color="#FF999999" />
+    <SolidColorBrush x:Key="GitHubLinkButtonMouseOverBrush" Color="#FF666666" />
+    <Style x:Key="GitHubLinkButton" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Control.Foreground" Value="{StaticResource GitHubLinkButtonBrush}" />
+        <Setter Property="Control.BorderBrush" Value="{StaticResource GitHubLinkButtonMouseOverBrush}" />
+        <Setter Property="Control.FontFamily" Value="{DynamicResource GitHubFontFamilyNormal}" />
+        <Setter Property="Control.FontSize" Value="14" />
+        <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="ToolTipService.ShowDuration" Value="30000" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid Background="#00FFFFFF" Margin="{TemplateBinding FrameworkElement.Margin}">
+                        <ContentPresenter Name="Text" Margin="{TemplateBinding Control.Padding}" VerticalAlignment="Stretch" HorizontalAlignment="Left" RecognizesAccessKey="True" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter TargetName="Text" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}" Property="TextBlock.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GitHubImageLinkButton" TargetType="{x:Type ButtonBase}">
+        <Setter Property="Control.Foreground" Value="{StaticResource GitHubLinkButtonBrush}" />
+        <Setter Property="Control.BorderBrush" Value="{StaticResource GitHubLinkButtonMouseOverBrush}" />
+        <Setter Property="Control.FontFamily" Value="{DynamicResource GitHubFontFamilyNormal}" />
+        <Setter Property="Control.FontSize" Value="14" />
+        <Setter Property="Control.FontWeight" Value="Normal" />
+        <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Control.Padding" Value="0,0,0,2" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+        <Setter Property="ToolTipService.ShowDuration" Value="30000" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid Background="#00FFFFFF" Margin="{TemplateBinding FrameworkElement.Margin}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Name="Normal" Opacity="1" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Path=(ui:ImageButton.Image), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ButtonBase}}}" />
+                        <Image Name="Hover" Opacity="0" Grid.Column="0" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Path=(ui:ImageButton.ImageMouseOver), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ButtonBase}}}" />
+                        <Image Name="Pressed" Opacity="0" Grid.Column="0" Stretch="None" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Path=(ui:ImageButton.ImagePressed), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ButtonBase}}}" />
+                        <TextBlock Name="Text" Text="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Control.Padding}" Grid.Column="1" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter TargetName="Normal" Property="UIElement.Opacity" Value="0" />
+                            <Setter TargetName="Hover" Property="UIElement.Opacity" Value="1" />
+                            <Setter TargetName="Text" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}" Property="TextBlock.Foreground" />
+                        </Trigger>
+                        <Trigger Property="ButtonBase.IsPressed" Value="True">
+                            <Setter TargetName="Normal" Property="UIElement.Opacity" Value="0" />
+                            <Setter TargetName="Hover" Property="UIElement.Opacity" Value="0" />
+                            <Setter TargetName="Pressed" Property="UIElement.Opacity" Value="1" />
+                            <Setter TargetName="Text" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" Property="TextBlock.Foreground" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GitHubTrashButton" TargetType="{x:Type Button}" BasedOn="{StaticResource GitHubLinkButton}">
+        <Setter Property="Control.Foreground" Value="#FFFFFFFF" />
+        <Setter Property="Control.BorderBrush" Value="#FFFFFFFF" />
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Stretch" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Control.Padding" Value="0" />
+        <Setter Property="FrameworkElement.MinWidth" Value="0" />
+        <Setter Property="FrameworkElement.MinHeight" Value="0" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid Background="#00FFFFFF" Margin="{TemplateBinding FrameworkElement.Margin}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Image">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ImageHover">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed" />
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Path Name="Image" Data="M1.999,13.023L8.999,13.023 10.002,12.011 10.002,5.005 0.997,5.005 0.997,12.012 1.999,13.023z M7.035,7.423C7.035,7.16 7.248,6.948 7.51,6.948 7.773,6.948 7.987,7.16 7.987,7.423L7.987,10.556C7.987,10.819 7.773,11.033 7.51,11.033 7.248,11.033 7.035,10.819 7.035,10.556L7.035,7.423z M4.992,7.423C4.992,7.16 5.237,6.948 5.499,6.948 5.762,6.948 5.975,7.16 5.975,7.423L5.975,10.556C5.975,10.819 5.762,11.033 5.499,11.033 5.237,11.033 4.992,10.819 4.992,10.556L4.992,7.423z M3.013,7.423C3.013,7.16 3.227,6.948 3.49,6.948 3.752,6.948 3.965,7.16 3.965,7.423L3.965,10.556C3.965,10.819 3.752,11.033 3.49,11.033 3.227,11.033 3.013,10.819 3.013,10.556L3.013,7.423z M9.966,1.966L8.043,1.966 8.012,1.395C8.011,0.625,7.387,0,6.616,0L4.351,0C3.58,0,2.956,0.625,2.956,1.395L2.956,1.998 1.001,1.998C0.639,1.997,0,2.665,0,3.029L0,3.988 10.998,3.988 10.998,2.998C10.998,2.634,10.329,1.966,9.966,1.966z M6.998,1.997L3.969,1.997 3.969,1.426C3.969,1.181,4.167,0.983,4.413,0.983L6.554,0.983C6.8,0.983,6.998,1.181,6.998,1.426L6.998,1.997z" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Path Name="ImageHover" Data="M1.999,15.023L8.999,15.023 10.002,14.011 10.002,7.005 0.997,7.005 0.997,14.012 1.999,15.023z M7.035,9.423C7.035,9.16 7.248,8.948 7.51,8.948 7.773,8.948 7.987,9.16 7.987,9.423L7.987,12.556C7.987,12.819 7.773,13.033 7.51,13.033 7.248,13.033 7.035,12.819 7.035,12.556L7.035,9.423z M4.992,9.423C4.992,9.16 5.237,8.948 5.499,8.948 5.762,8.948 5.975,9.16 5.975,9.423L5.975,12.556C5.975,12.819 5.762,13.033 5.499,13.033 5.237,13.033 4.992,12.819 4.992,12.556L4.992,9.423z M3.013,9.423C3.013,9.16 3.227,8.948 3.49,8.948 3.752,8.948 3.965,9.16 3.965,9.423L3.965,12.556C3.965,12.819 3.752,13.033 3.49,13.033 3.227,13.033 3.013,12.819 3.013,12.556L3.013,9.423z M9.966,1.966L8.043,1.966 8.012,1.395C8.011,0.625,7.387,0,6.616,0L4.351,0C3.58,0,2.956,0.625,2.956,1.395L2.956,1.998 1.001,1.998C0.639,1.997,0,2.665,0,3.029L0,3.988 10.998,3.988 10.998,2.998C10.998,2.634,10.329,1.966,9.966,1.966z M6.998,1.997L3.969,1.997 3.969,1.426C3.969,1.181,4.167,0.983,4.413,0.983L6.554,0.983C6.8,0.983,6.998,1.181,6.998,1.426L6.998,1.997z" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GitHubClearButton" TargetType="{x:Type ButtonBase}" BasedOn="{StaticResource GitHubLinkButton}">
+        <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
+        <Setter Property="FrameworkElement.HorizontalAlignment" Value="Center" />
+        <Setter Property="Control.Padding" Value="0,0,0,0" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid RenderOptions.EdgeMode="Aliased" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#00FFFFFF">
+                        <Path Name="Image" Data="M10.009,1.704L8.331,0.026 5.03,3.327 1.703,0 0,1.704 3.326,5.031 0.025,8.332 1.703,10.009 5.004,6.708 8.305,10.009 10.009,8.305 6.708,5.005" Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsMouseOver" Value="True">
+                            <Setter TargetName="Image" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}" Property="Shape.Fill" />
+                        </Trigger>
+                        <Trigger Property="ButtonBase.IsPressed" Value="True">
+                            <Setter TargetName="Image" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Foreground}" Property="Shape.Fill" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ChromeButton" TargetType="{x:Type Button}">
+        <Setter Property="Control.Background" Value="{StaticResource ChromeButtonBrush}" />
+        <Setter Property="Control.Foreground" Value="{StaticResource ChromeButtonForegroundBrush}" />
+        <Setter Property="Control.BorderBrush" Value="{x:Null}" />
+        <Setter Property="Control.IsTabStop" Value="False" />
+        <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
+        <Setter Property="Control.BorderThickness" Value="0" />
+        <Setter Property="Control.Padding" Value="0" />
+        <Setter Property="FrameworkElement.FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border Name="Chrome" BorderBrush="{TemplateBinding Control.BorderBrush}" Margin="0" Background="{TemplateBinding Control.Background}" SnapsToDevicePixels="True">
+                        <ContentPresenter ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" Content="{TemplateBinding ContentControl.Content}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" Margin="{TemplateBinding Control.Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="GitHubChromeButton" TargetType="{x:Type Button}" BasedOn="{StaticResource ChromeButton}">
+        <Style.Triggers>
+            <Trigger Property="UIElement.IsMouseOver" Value="True">
+                <Setter Property="Control.Foreground" Value="{StaticResource ChromeButtonHoverForegroundBrush}" />
+                <Setter Property="Control.Background" Value="{StaticResource ChromeButtonHoverBrush}" />
+            </Trigger>
+            <Trigger Property="ButtonBase.IsPressed" Value="True">
+                <Setter Property="Control.Foreground" Value="{StaticResource ChromeButtonPressedForegroundBrush}" />
+                <Setter Property="Control.Background" Value="{StaticResource ChromeButtonPressedBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="GitHubChromeCloseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource ChromeButton}">
+        <Style.Setters>
+            <Setter Property="Control.Background" Value="{StaticResource ChromeCloseButtonBrush}" />
+            <Setter Property="Control.Foreground" Value="{StaticResource ChromeCloseButtonForegroundBrush}" />
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="UIElement.IsMouseOver" Value="True">
+                <Setter Property="Control.Foreground" Value="{StaticResource ChromeCloseButtonHoverForegroundBrush}" />
+                <Setter Property="Control.Background" Value="{StaticResource ChromeCloseButtonHoverBrush}" />
+            </Trigger>
+            <Trigger Property="ButtonBase.IsPressed" Value="True">
+                <Setter Property="Control.Foreground" Value="{StaticResource ChromeCloseButtonPressedForegroundBrush}" />
+                <Setter Property="Control.Background" Value="{StaticResource ChromeCloseButtonPressedBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="UpdateSoftwareButton" TargetType="{x:Type Button}" BasedOn="{StaticResource GitHubLinkButton}">
+        <Setter Property="FrameworkElement.ToolTip" Value="a software update is available" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="SoftwareUpdateStoryboard" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Image">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseInOut" />
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="1" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:7.5" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseInOut" />
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Image">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="20" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseInOut" />
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:7" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:7.5" Value="-20">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseInOut" />
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid Background="#00FFFFFF" Margin="{TemplateBinding FrameworkElement.Margin}">
+                        <Path Name="Image" Data="M5.001,3.631L7.977,6.784 7.977,4.219 3.995,0 0,4.201 0,6.764 2.99,3.631 2.99,10.179 5.001,10.179 5.001,3.631z" Fill="{DynamicResource GitHubAccentBrush}" RenderTransformOrigin="0.5,0.5" Opacity="0" VerticalAlignment="Center">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform />
+                                    <TranslateTransform Y="20" />
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="UIElement.IsVisible" Value="True">
+                            <Trigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="SoftwareUpdateStoryboard_BeginStoryboard" />
+                            </Trigger.ExitActions>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Name="SoftwareUpdateStoryboard_BeginStoryboard" Storyboard="{StaticResource SoftwareUpdateStoryboard}" />
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

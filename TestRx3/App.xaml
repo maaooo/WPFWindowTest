@@ -6,6 +6,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/TestRx3;component/assets/themes/default.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TestRx3;component/assets/themes/common.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/TestRx3;component/assets/themes/Buttons.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/TestRx3;component/Ctontrols/FilterTextBox.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/TestRx3;component/Ctontrols/WindowStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>

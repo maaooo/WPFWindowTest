@@ -27,6 +27,10 @@
             <Grid Row="1"  >
                 <ctontrols:FilterTextBox x:Name="filterText" PromptText="Filter repositories" Width="120" Margin="10" />
                 <ctontrols:FilterTextBox x:Name="filterText2" PromptText="Filter repositories" Margin="10,100,0,0" />
+                <ProgressBar HorizontalAlignment="Left" x:Name="TestProgress" Height="31" Maximum="1000" Margin="0,149.403,0,0" Value="{Binding par,Mode=TwoWay}" VerticalAlignment="Top" Width="517" Grid.Row="1"/>
+                <ctontrols:OcticonCircleButton Icon="check" IsDefault="True" TabIndex="2" Content="Log in" Width="120" Height="50" Command="{Binding OkCommand}" />
+                <Button Content="Test" Click="test_Click" HorizontalAlignment="Left" Margin="171,226.403,0,0" VerticalAlignment="Top" Width="142" Height="39" Grid.Row="1"/>
+                <Button Content="TestRx" Click="testRx_Click" HorizontalAlignment="Left" Margin="318,226.403,0,0" VerticalAlignment="Top" Width="142" Height="39" Grid.Row="1"/>
             </Grid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <StackPanel.Resources>
@@ -83,10 +87,10 @@
                     <Path Margin="12,15,12,7" Data="M0,0L0,2 7.999,2 7.999,0 0,0z" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" />
                 </Button>
                 <Grid>
-                    <Button Name="MaximizeButton" Style="{StaticResource GitHubChromeButton}" IsTabStop="False" ToolTip="Maximize" RenderOptions.EdgeMode="Aliased" Click="Restore">
+                    <Button Name="MaximizeButton" Style="{StaticResource GitHubChromeButton}" IsTabStop="False" ToolTip="Maximize" RenderOptions.EdgeMode="Aliased" Click="Restore" Visibility="Hidden">
                         <Path Margin="10,8" Data="M0,9.999L0,0 9.998,0 9.998,9.999 0,9.999z M8.998,3L1,3 1,8.999 8.999,8.999 8.999,3z" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" />
                     </Button>
-                    <Button Name="RestoreButton" Style="{StaticResource GitHubChromeButton}" IsTabStop="False" ToolTip="Restore" RenderOptions.EdgeMode="Aliased" Visibility="Hidden" Click="Restore">
+                    <Button Name="RestoreButton" Style="{StaticResource GitHubChromeButton}" IsTabStop="False" ToolTip="Restore" RenderOptions.EdgeMode="Aliased" Visibility="Visible" Click="Restore">
                         <Path Margin="10,8" Data="M8,6.999L8,9.999 0,9.999 0,3 2,3 2,0 9.999,0 9.999,6.999 8,6.999z M1,8.999L7,8.999 7,4.999 1,4.999 1,8.999z M8.999,2L3,2 3,3 8,3 8,5.999 8.999,5.999 8.999,2z" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" />
                     </Button>
                 </Grid>
@@ -94,9 +98,7 @@
                     <Path Margin="10,8" Data="M10.009,1.704L8.331,0.026 5.03,3.327 1.703,0 0,1.704 3.326,5.031 0.025,8.332 1.703,10.009 5.004,6.708 8.305,10.009 10.009,8.305 6.708,5.005" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" />
                 </Button>
             </StackPanel>
-            <!-- <ProgressBar HorizontalAlignment="Left" x:Name="TestProgress" Height="31" Margin="0,149.403,0,0" VerticalAlignment="Top" Width="517" Grid.Row="1"/>
-        <Button Content="Test" Click="test_Click" HorizontalAlignment="Left" Margin="171,226.403,0,0" VerticalAlignment="Top" Width="142" Height="39" Grid.Row="1"/>
-        <Button Content="TestRx" Click="testRx_Click" HorizontalAlignment="Left" Margin="318,226.403,0,0" VerticalAlignment="Top" Width="142" Height="39" Grid.Row="1"/> -->
+          
             <Grid Name="frameGrid">
                 <Border Name="noDwmBorder" BorderThickness="1" BorderBrush="#FF999999" Visibility="Hidden" IsHitTestVisible="False" />
                 <Border Name="windowFocusBorder" BorderThickness="12" BorderBrush="#661BA1E2" Visibility="Hidden" IsHitTestVisible="False" />

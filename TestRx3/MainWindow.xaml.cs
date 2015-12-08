@@ -38,10 +38,21 @@ namespace TestRx3 {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            this.DataContext = this;
+            par = 0;
             this.SourceInitialized += MainWindow_SourceInitialized;
             this.StateChanged += MainWindow_StateChanged;
             this.MouseLeftButtonDown += MainWindow_MouseLeftButtonDown;
            // this.BorderThickness = new System.Windows.Thickness(customBorderThickness);
+        }
+        public static readonly DependencyProperty CollProperty = DependencyProperty.Register("par",typeof(double), typeof(MainWindow));
+        public double par {
+            get {
+                return (double)base.GetValue(MainWindow.CollProperty);
+            }
+            set {
+                base.SetValue(MainWindow.CollProperty, value);
+            }
         }
         void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -203,13 +214,36 @@ namespace TestRx3 {
         }  
         private void test_Click(object sender, RoutedEventArgs e)
         {
-//             TestProgress.Maximum = 100000;
-//             for (int i = 0; i < 100000; i++)
+         //  TestProgress.Maximum = 100000;
+//             for (int i = 0; i < 1000; i++)
 //             {
-//                 Thread.Sleep(100);
-//                 TestProgress.Value = i;
+//                 Thread.Sleep(30);
+//                 par = i;
 //                 Console.WriteLine(i);
 //             }
+//             new Thread(() => {
+//                 this.Dispatcher.Invoke(new Action(() => {
+//                     TestProgress.Value = 20;
+//                 }));
+//             }).Start();
+
+            var t= new Thread(() => {
+                for (int i = 0; i <  1000; i++) {
+                    Thread.Sleep(10);
+                   var task= this.Dispatcher.BeginInvoke(new Action(() => {
+                        //Thread.Sleep(30);
+                        par= (double)(i);
+                         Console.WriteLine(i);
+                    }));
+                    task.Completed+=task_Completed;
+                }
+            }) ;
+            t.Start();
+            
+        }
+
+        void task_Completed(object sender, EventArgs e) {
+            Console.WriteLine("完成");
         }
 
         private void testRx_Click(object sender, RoutedEventArgs e)
@@ -218,9 +252,9 @@ namespace TestRx3 {
 //             input.Subscribe(x => { 
 //                 Console.WriteLine("x:{0} ", x) ;
 //                 TestProgress.Value = x;});
-            var piCalculator = new PiCalculator();
-            piCalculator.ResultStream.Subscribe(n => Console.WriteLine((n)));
-            piCalculator.Start();
+//             var piCalculator = new PiCalculator();
+//             piCalculator.ResultStream.Subscribe(n => Console.WriteLine((n)));
+//             piCalculator.Start();
         }
 
         private void Windwo_loaded(object sender, RoutedEventArgs e) {
