@@ -11,7 +11,8 @@ using System.Windows.Shapes;
 
 namespace TestRx3.Ctontrols {
     public class OcticonPath : Shape {
-        private static readonly Lazy<Dictionary<Octicon, Lazy<Geometry>>> cache = new Lazy<Dictionary<Octicon, Lazy<Geometry>>>(new Func<Dictionary<Octicon, Lazy<Geometry>>>(OcticonPath.PrepareCache));
+        private static readonly Lazy<Dictionary<Octicon, Lazy<Geometry>>> cache = 
+            new Lazy<Dictionary<Octicon, Lazy<Geometry>>>(new Func<Dictionary<Octicon, Lazy<Geometry>>>(OcticonPath.PrepareCache));
 
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(Octicon), typeof(OcticonPath),
             new FrameworkPropertyMetadata(Octicon.mark_github, FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsArrange | FrameworkPropertyMetadataOptions.AffectsRender));
